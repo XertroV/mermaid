@@ -53,7 +53,8 @@ theme , the CSS style sheet
 -   default
 -   forest
 -   dark
--   neutral.
+-   neutral
+-   fi
     To disable any pre-defined mermaid theme, use "null".
 
 **themeCSS** - Use your own CSS. This overrides **theme**.

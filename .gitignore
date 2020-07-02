@@ -11,8 +11,10 @@ token
 package-lock.json
 
 dist/classTest.html
-
 dist/sequenceTest.html
+
+dist_dev
+dist/*
 
 .vscode/
 cypress/platform/current.html
