@@ -2,10 +2,12 @@
   font-family: 'trebuchet ms', verdana, arial;
   font-family: var(--mermaid-font-family);
   color: #333;
+  fill: #fff;
 }
 
 .label text {
   fill: #333;
+  padding: 5px;
 }
 
 .node rect,
@@ -51,6 +53,15 @@
   fill: $secondBkg;
   stroke: $clusterBorder;
   stroke-width: 1px;
+}
+
+.cluster.noFill rect {
+  fill: none;
+}
+
+.cluster.noStroke rect {
+  stroke: none;
+  stroke-width: 0px;
 }
 
 .cluster text {

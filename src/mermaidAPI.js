@@ -51,7 +51,7 @@ import journeyDb from './diagrams/user-journey/journeyDb';
 import journeyRenderer from './diagrams/user-journey/journeyRenderer';
 
 const themes = {};
-for (const themeName of ['default', 'forest', 'dark', 'neutral']) {
+for (const themeName of ['default', 'forest', 'dark', 'neutral', 'fi']) {
   themes[themeName] = require(`./themes/${themeName}/index.scss`);
 }
 
@@ -93,7 +93,8 @@ const config = {
    *    * default
    *    * forest
    *    * dark
-   *    * neutral.
+   *    * neutral
+   *    * fi
    * To disable any pre-defined mermaid theme, use "null".
    *
    * **themeCSS** - Use your own CSS. This overrides **theme**.
@@ -635,6 +636,12 @@ function parse(text) {
   parser.parse(text);
 }
 
+const encodeMarkers = {
+  strStart: 'ﬂ°',
+  intStart: 'ﬂ°°',
+  end: '¶ß'
+};
+
 export const encodeEntities = function(text) {
   let txt = text;
 
@@ -984,7 +991,8 @@ const mermaidAPI = {
   parse,
   initialize,
   reinitialize,
-  getConfig
+  getConfig,
+  encodeMarkers
 };
 
 export default mermaidAPI;

@@ -317,13 +317,19 @@ export const draw = function(text, id) {
   const subGraphs = flowDb.getSubGraphs();
   for (let i = subGraphs.length - 1; i >= 0; i--) {
     subG = subGraphs[i];
+    if (subG.title === 'ﬂ°nbsp¶ß') {
+      subG.classes.push('noFill', 'noStroke');
+      subG.title === '';
+    }
     flowDb.addVertex(subG.id, subG.title, 'group', undefined, subG.classes);
   }
 
   // Fetch the verices/nodes and edges/links from the parsed graph definition
   const vert = flowDb.getVertices();
+  console.log(vert);
 
   const edges = flowDb.getEdges();
+  console.log(edges);
 
   let i = 0;
   for (i = subGraphs.length - 1; i >= 0; i--) {
@@ -386,7 +392,7 @@ export const draw = function(text, id) {
   // Set up an SVG group so that we can translate the final graph.
   const svg = select(`[id="${id}"]`);
 
-  // Run the renderer. This is what draws the final graph.
+  // Run the renderer. This is what draws the final graph. the renderer. This is what draws the final graph.
   const element = select('#' + id + ' g');
   render(element, g);
 
