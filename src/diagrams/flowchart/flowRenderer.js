@@ -320,8 +320,10 @@ export const draw = function(text, id) {
     if (subG.title === 'ﬂ°nbsp¶ß') {
       subG.classes.push('noFill', 'noStroke');
       subG.title = '';
+      flowDb.addVertex(subG.id, subG.title, 'group', undefined, subG.classes);
+    } else {
+      flowDb.addVertex(subG.id, subG.title, 'group', undefined, subG.classes);
     }
-    flowDb.addVertex(subG.id, subG.title, 'group', undefined, subG.classes);
   }
 
   // Fetch the verices/nodes and edges/links from the parsed graph definition
@@ -335,6 +337,7 @@ export const draw = function(text, id) {
 
     selectAll('cluster').append('text');
 
+    // set this subgraph cluster as parent of nodes
     for (let j = 0; j < subG.nodes.length; j++) {
       g.setParent(subG.nodes[j], subG.id);
     }
